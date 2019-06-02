@@ -1,14 +1,9 @@
 import { DirtyCheckContext } from './Form.js'
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 
-export default function withDirtyCheck({
-  watchProp = 'value'
-} = {}) {
-
+export default function withDirtyCheck({ watchProp = 'value' } = {}) {
   return function(WrappedComponent) {
-
     class WithDirtyCheck extends PureComponent {
-
       static contextType = DirtyCheckContext
 
       static displayName = `withDirtyCheck(${WrappedComponent.name})`
@@ -28,22 +23,20 @@ export default function withDirtyCheck({
         }
       }
 
-      render () {
+      render() {
         const { forwardedRef, ...rest } = this.props
-
-
-        return (<WrappedComponent 
-          {...rest}
-          ref={forwardedRef}
-          onChange={this.handleChange}        
-        />)
+        return (
+          <WrappedComponent
+            {...rest}
+            ref={forwardedRef}
+            onChange={this.handleChange}
+          />
+        )
       }
-
     }
 
     return React.forwardRef((props, ref) => {
-      return <WithDirtyCheck {...props} forwardedRef={ref} />;
-    });
-
+      return <WithDirtyCheck {...props} forwardedRef={ref} />
+    })
   }
 }

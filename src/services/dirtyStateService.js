@@ -1,6 +1,4 @@
-function Plugin() {
-  
-}
+function Plugin() {}
 
 class DirtyStateService {
   constructor() {

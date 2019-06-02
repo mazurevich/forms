@@ -39,9 +39,14 @@ function App() {
             setInputValue3(value)
           }}
         />
-        <button type="button" onClick={() => {
-          inputRef.current.focus()
-        }}>Focus</button>
+        <button
+          type="button"
+          onClick={() => {
+            inputRef.current.focus()
+          }}
+        >
+          Focus
+        </button>
       </Form>
     </div>
   )
